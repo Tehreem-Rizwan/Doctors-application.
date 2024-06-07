@@ -1,0 +1,20 @@
+class AppStrings {
+  static String appname = "doctorsapp",
+      BestDocApp = "Best Doctor\n Appointment App",
+      welcomeBack = "Welcome Back!",
+      weAreExcited = "We are excited to have you back",
+      signupnow =
+          "Sign Up now and start exploring all that our app has to offer",
+      email = "Email",
+      emailHint = "Enter your email",
+      password = "Password",
+      passwordHint = "Enter your password here",
+      fullname = "Full Name",
+      fullnameHint = "Enter your name here",
+      confirmPassword = "Confirm Password",
+      forgetPassword = "Forget Password?",
+      login = "Login",
+      signup = "SignUp",
+      alreadyHaveAccount = "Already have an Account",
+      dontHaveAccount = "Don't Have an Account";
+}
