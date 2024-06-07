@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
       height: 44,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue, // Set the button color to blue
+            backgroundColor: Colors.blueAccent, // Set the button color to blue
             shape: StadiumBorder(),
           ),
           onPressed: onTap,
