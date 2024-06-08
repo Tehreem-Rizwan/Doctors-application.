@@ -3,12 +3,10 @@ import 'package:doctorsapp/consts/images.dart';
 import 'package:doctorsapp/consts/strings.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
-import 'package:doctorsapp/views/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +20,14 @@ class LoginView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  AppAssets.icLogin,
+                  AppAssets.imgSignup,
                   width: 200,
                 ),
-                10.heightBox,
+                30.heightBox,
                 AppStyles.bold(
-                    title: AppStrings.welcomeBack, size: AppSizes.size18),
-                AppStyles.bold(title: AppStrings.weAreExcited),
-                // AppStrings.welcomeBack.text.make(),
-                // AppStrings.weAreExcited.text.make(),
+                    title: AppStrings.signupnow,
+                    size: AppSizes.size18,
+                    alignment: TextAlign.center),
               ],
             ),
             40.heightBox,
@@ -62,12 +59,7 @@ class LoginView extends StatelessWidget {
                       children: [
                         AppStyles.normal(title: AppStrings.dontHaveAccount),
                         8.widthBox,
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => SignUpView());
-                          },
-                          child: AppStyles.bold(title: AppStrings.signup),
-                        )
+                        AppStyles.normal(title: AppStrings.signup),
                       ],
                     )
                   ],

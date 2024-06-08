@@ -15,15 +15,24 @@ class AppSizes {
 }
 
 class AppStyles {
-  static normal({String? title, Color? color = Colors.black, double? size}) {
+  static normal(
+      {String? title,
+      Color? color = Colors.black,
+      double? size = 14,
+      TextAlign alignment = TextAlign.left}) {
     return title!.text.size(size).color(color).make();
   }
 
-  static bold({String? title, Color? color = Colors.black, double? size}) {
+  static bold(
+      {String? title,
+      Color? color = Colors.black,
+      double? size = 14,
+      TextAlign alignment = TextAlign.left}) {
     return title!.text
         .size(size)
         .color(color)
         .fontFamily(AppFonts.NunitoBold)
+        .align(alignment)
         .make();
   }
 }

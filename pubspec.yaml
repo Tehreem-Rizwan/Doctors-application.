@@ -79,6 +79,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/img_Login.png
+    - assets/images/img-signup.png
 
   fonts:  
      - family: Poppins
