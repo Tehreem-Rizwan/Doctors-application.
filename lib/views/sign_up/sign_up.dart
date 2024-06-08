@@ -3,7 +3,9 @@ import 'package:doctorsapp/consts/images.dart';
 import 'package:doctorsapp/consts/strings.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
+import 'package:doctorsapp/views/home_view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -12,7 +14,7 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 40),
+        margin: EdgeInsets.only(top: 70),
         padding: EdgeInsets.all(8),
         child: Column(
           children: [
@@ -24,10 +26,10 @@ class SignUpView extends StatelessWidget {
                   width: 200,
                 ),
                 30.heightBox,
-                AppStyles.bold(
-                    title: AppStrings.signupnow,
-                    size: AppSizes.size18,
-                    alignment: TextAlign.center),
+                Text(AppStrings.signupnow,
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
               ],
             ),
             40.heightBox,
@@ -37,29 +39,40 @@ class SignUpView extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomTextField(
+                      hint: AppStrings.fullname,
+                    ),
+                    10.heightBox,
+                    CustomTextField(
                       hint: AppStrings.email,
                     ),
                     10.heightBox,
                     CustomTextField(
                       hint: AppStrings.password,
                     ),
-                    20.heightBox,
-                    Align(
-                        alignment: Alignment.centerRight,
-                        child:
-                            AppStyles.normal(title: AppStrings.forgetPassword)),
-                    20.heightBox,
+                    40.heightBox,
                     CustomButton(
-                      buttonText: AppStrings.login,
-                      onTap: () {},
+                      buttonText: AppStrings.signup,
+                      onTap: () {
+                        Get.to(() => HomeView());
+                      },
                     ),
                     20.heightBox,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        AppStyles.normal(title: AppStrings.dontHaveAccount),
+                        AppStyles.regular(title: AppStrings.alreadyHaveAccount),
                         8.widthBox,
-                        AppStyles.normal(title: AppStrings.signup),
+                        GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Text(
+                            AppStrings.login,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
                       ],
                     )
                   ],

@@ -80,6 +80,12 @@ flutter:
     - assets/icons/
     - assets/images/img_Login.png
     - assets/images/img-signup.png
+    - assets/images/img_body.png
+    - assets/images/img_heart.png
+    - assets/images/img_kidney.png
+    - assets/images/img_Liver.png
+    - assets/images/imgEar.png
+    - assets/images/img_Lungs.png
 
   fonts:  
      - family: Poppins
@@ -87,7 +93,7 @@ flutter:
          - asset: assets/fonts/Nunito-Regular.ttf
          - asset: assets/fonts/Nunito-Bold.ttf
          - asset: assets/fonts/Nunito-Light.ttf
-        
+           weight: 700
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

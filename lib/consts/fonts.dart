@@ -15,20 +15,27 @@ class AppSizes {
 }
 
 class AppStyles {
-  static normal(
-      {String? title,
-      Color? color = Colors.black,
-      double? size = 14,
-      TextAlign alignment = TextAlign.left}) {
-    return title!.text.size(size).color(color).make();
+  static Widget regular({
+    required String title,
+    Color color = Colors.black,
+    double size = 14.0,
+    TextAlign alignment = TextAlign.left,
+  }) {
+    return title.text
+        .size(size)
+        .color(color)
+        .align(alignment)
+        .fontFamily(AppFonts.Nunito)
+        .make();
   }
 
-  static bold(
-      {String? title,
-      Color? color = Colors.black,
-      double? size = 14,
-      TextAlign alignment = TextAlign.left}) {
-    return title!.text
+  static Widget bold({
+    required String title,
+    Color color = Colors.black,
+    double size = 14.0,
+    TextAlign alignment = TextAlign.left,
+  }) {
+    return title.text
         .size(size)
         .color(color)
         .fontFamily(AppFonts.NunitoBold)

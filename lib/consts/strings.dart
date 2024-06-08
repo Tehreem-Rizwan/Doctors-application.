@@ -2,6 +2,7 @@ class AppStrings {
   static String appname = "doctorsapp",
       BestDocApp = "Best Doctor\n Appointment App",
       welcomeBack = "Welcome Back!",
+      welcome = "Welcome",
       weAreExcited = "We are excited to have you back",
       signupnow =
           "Sign Up now and start exploring all that our app has to offer",
@@ -14,7 +15,14 @@ class AppStrings {
       confirmPassword = "Confirm Password",
       forgetPassword = "Forget Password?",
       login = "Login",
-      signup = "SignUp",
-      alreadyHaveAccount = "Already have an Account",
-      dontHaveAccount = "Don't Have an Account";
+      signup = "Sign Up",
+      alreadyHaveAccount = "Already have an Account?",
+      dontHaveAccount = "Don't Have an Account?",
+      search = "Search Doctor",
+      body = "Body",
+      ear = "Ear",
+      liver = "Liver",
+      lungs = "Lungs",
+      heart = "Heart",
+      kidney = "Kidney";
 }

@@ -3,6 +3,7 @@ import 'package:doctorsapp/consts/images.dart';
 import 'package:doctorsapp/consts/strings.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
+import 'package:doctorsapp/views/home_view/home_view.dart';
 import 'package:doctorsapp/views/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,11 +27,10 @@ class LoginView extends StatelessWidget {
                   width: 200,
                 ),
                 10.heightBox,
-                AppStyles.bold(
-                    title: AppStrings.welcomeBack, size: AppSizes.size18),
+                Text(AppStrings.welcomeBack,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
                 AppStyles.bold(title: AppStrings.weAreExcited),
-                // AppStrings.welcomeBack.text.make(),
-                // AppStrings.weAreExcited.text.make(),
               ],
             ),
             40.heightBox,
@@ -49,24 +49,31 @@ class LoginView extends StatelessWidget {
                     20.heightBox,
                     Align(
                         alignment: Alignment.centerRight,
-                        child:
-                            AppStyles.normal(title: AppStrings.forgetPassword)),
+                        child: AppStyles.regular(
+                            title: AppStrings.forgetPassword)),
                     20.heightBox,
                     CustomButton(
                       buttonText: AppStrings.login,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => HomeView());
+                      },
                     ),
                     20.heightBox,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        AppStyles.normal(title: AppStrings.dontHaveAccount),
+                        AppStyles.regular(title: AppStrings.dontHaveAccount),
                         8.widthBox,
                         GestureDetector(
                           onTap: () {
                             Get.to(() => SignUpView());
                           },
-                          child: AppStyles.bold(title: AppStrings.signup),
+                          child: Text(
+                            AppStrings.signup,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         )
                       ],
                     )
