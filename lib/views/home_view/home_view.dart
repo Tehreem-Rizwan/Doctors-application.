@@ -82,30 +82,86 @@ class HomeView extends StatelessWidget {
                             ),
                           );
                         })),
+                20.heightBox,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(AppStrings.popularDoctors,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: AppColors.blueColor)),
+                ),
                 10.heightBox,
                 SizedBox(
                   height: 150,
                   child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemCount: 3,
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
+                          clipBehavior: Clip.hardEdge,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 239, 234, 234),
+                              borderRadius: BorderRadius.circular(12)),
                           margin: EdgeInsets.only(right: 8),
-                          color: Colors.red,
                           height: 100,
-                          width: 100,
+                          width: 150,
                           child: Column(
                             children: [
-                              Image.asset(
-                                AppAssets.imgSignup,
-                                width: 100,
-                                fit: BoxFit.cover,
-                              )
+                              Container(
+                                width: 150,
+                                alignment: Alignment.center,
+                                color: AppColors.blueColor,
+                                child: Image.asset(
+                                  AppAssets.imgdoctor,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              5.heightBox,
+                              AppStyles.regular(title: "Doctor Name"),
+                              5.heightBox,
+                              AppStyles.regular(
+                                  title: "Category", color: Colors.black54)
                             ],
                           ),
                         );
                       }),
-                )
+                ),
+                5.heightBox,
+                GestureDetector(
+                    onTap: () {},
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: AppStyles.regular(
+                          title: "View All", color: AppColors.blueColor),
+                    )),
+                20.heightBox,
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: List.generate(
+                        4,
+                        (index) => Container(
+                              decoration: BoxDecoration(
+                                  color: AppColors.blueColor,
+                                  borderRadius: BorderRadius.circular(12)),
+                              padding: EdgeInsets.all(12),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    AppAssets.icBody,
+                                    width: 25,
+                                    color: AppColors.whitecolor,
+                                  ),
+                                  5.heightBox,
+                                  AppStyles.regular(
+                                      title: "Lab Test",
+                                      color: AppColors.whitecolor)
+                                ],
+                              ),
+                            )))
               ],
             ),
           ),

@@ -6,5 +6,6 @@ class AppAssets {
       icLiver = "assets/images/img_Liver.png",
       icEar = "assets/images/imgEar.png",
       icLungs = "assets/images/img_Lungs.png",
-      imgSignup = "assets/images/img-signup.png";
+      imgSignup = "assets/images/img-signup.png",
+      imgdoctor = "assets/images/img_doctor.png";
 }

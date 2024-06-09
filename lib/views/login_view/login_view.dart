@@ -3,7 +3,8 @@ import 'package:doctorsapp/consts/images.dart';
 import 'package:doctorsapp/consts/strings.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
-import 'package:doctorsapp/views/home_view/home_view.dart';
+import 'package:doctorsapp/views/home_view/home.dart';
+
 import 'package:doctorsapp/views/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,7 @@ class LoginView extends StatelessWidget {
                     CustomButton(
                       buttonText: AppStrings.login,
                       onTap: () {
-                        Get.to(() => HomeView());
+                        Get.to(() => Home());
                       },
                     ),
                     20.heightBox,

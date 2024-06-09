@@ -16,6 +16,7 @@ class AppStrings {
       forgetPassword = "Forget Password?",
       login = "Login",
       signup = "Sign Up",
+      popularDoctors = "Popular Doctors",
       alreadyHaveAccount = "Already have an Account?",
       dontHaveAccount = "Don't Have an Account?",
       search = "Search Doctor",

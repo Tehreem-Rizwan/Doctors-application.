@@ -86,6 +86,7 @@ flutter:
     - assets/images/img_Liver.png
     - assets/images/imgEar.png
     - assets/images/img_Lungs.png
+    - assets/images/img_doctor.png
 
   fonts:  
      - family: Poppins
