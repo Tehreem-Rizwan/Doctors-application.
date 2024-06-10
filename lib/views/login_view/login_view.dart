@@ -31,7 +31,7 @@ class LoginView extends StatelessWidget {
                 Text(AppStrings.welcomeBack,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                AppStyles.bold(title: AppStrings.weAreExcited),
+                AppStyles.regular(title: AppStrings.weAreExcited),
               ],
             ),
             40.heightBox,

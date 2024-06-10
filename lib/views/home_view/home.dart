@@ -1,4 +1,5 @@
 import 'package:doctorsapp/consts/const.dart';
+import 'package:doctorsapp/views/category_view/category_view.dart';
 import 'package:doctorsapp/views/home_view/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,7 @@ class _HomeState extends State<Home> {
   int selectedindex = 0;
   List screenList = [
     HomeView(),
-    Container(
-      color: Colors.red,
-    ),
+    CategoryView(),
     Container(
       color: Colors.green,
     ),

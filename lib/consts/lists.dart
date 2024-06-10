@@ -5,7 +5,7 @@ var iconsList = [
   AppAssets.icBody,
   AppAssets.icEar,
   AppAssets.icLiver,
-  AppAssets.icLiver,
+  AppAssets.icLungs,
   AppAssets.icHeart,
   AppAssets.icKidney,
 ];

@@ -14,6 +14,7 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
           elevation: 0.0,
           backgroundColor: AppColors.blueColor,
+          iconTheme: IconThemeData(color: Colors.white),
           title: Text(
             "Welcome User",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -44,7 +45,7 @@ class HomeView extends StatelessWidget {
               ],
             ),
           ),
-          20.heightBox,
+          30.heightBox,
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
@@ -82,7 +83,7 @@ class HomeView extends StatelessWidget {
                             ),
                           );
                         })),
-                20.heightBox,
+                30.heightBox,
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(AppStrings.popularDoctors,
@@ -92,7 +93,7 @@ class HomeView extends StatelessWidget {
                           fontSize: 18,
                           color: AppColors.blueColor)),
                 ),
-                10.heightBox,
+                20.heightBox,
                 SizedBox(
                   height: 150,
                   child: ListView.builder(
@@ -130,7 +131,7 @@ class HomeView extends StatelessWidget {
                         );
                       }),
                 ),
-                5.heightBox,
+                20.heightBox,
                 GestureDetector(
                     onTap: () {},
                     child: Align(
@@ -138,7 +139,7 @@ class HomeView extends StatelessWidget {
                       child: AppStyles.regular(
                           title: "View All", color: AppColors.blueColor),
                     )),
-                20.heightBox,
+                30.heightBox,
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: List.generate(
