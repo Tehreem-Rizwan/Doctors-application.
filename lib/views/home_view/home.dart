@@ -1,6 +1,8 @@
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/views/category_view/category_view.dart';
+import 'package:doctorsapp/views/doctors_view/doctorsview.dart';
 import 'package:doctorsapp/views/home_view/home_view.dart';
+import 'package:doctorsapp/views/settings_view/settings_view.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,16 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int selectedindex = 0;
-  List screenList = [
-    HomeView(),
-    CategoryView(),
-    Container(
-      color: Colors.green,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
-  ];
+  List screenList = [HomeView(), CategoryView(), DoctorsView(), SettingsView()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +36,7 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(Icons.category), label: "Category"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Person"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Doctor"),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
         ],
       ),
