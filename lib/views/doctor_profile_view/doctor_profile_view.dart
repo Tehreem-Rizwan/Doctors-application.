@@ -31,7 +31,26 @@ class DoctorProfileView extends StatelessWidget {
                   child: Image.asset(AppAssets.imgdoctor),
                 ),
                 Column(
-                  children: [],
+                  children: [
+                    ListTile(
+                      title: AppStyles.bold(
+                          title: "Phone Number", color: AppColors.textColor),
+                      subtitle: AppStyles.regular(
+                          title: "+923456916459",
+                          color: AppColors.textColor.withOpacity(0.5),
+                          size: AppSizes.size12),
+                      trailing: Container(
+                          width: 50,
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: AppColors.yellowColor),
+                          child: Icon(
+                            Icons.phone,
+                            color: AppColors.whitecolor,
+                          )),
+                    )
+                  ],
                 ),
               ],
             ),
