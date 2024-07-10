@@ -49,7 +49,9 @@ class DoctorProfileView extends StatelessWidget {
                             Icons.phone,
                             color: AppColors.whitecolor,
                           )),
-                    )
+                    ),
+                    10.heightBox,
+                    AppStyles.bold(title: "About", color: AppColors.textColor),
                   ],
                 ),
               ],
