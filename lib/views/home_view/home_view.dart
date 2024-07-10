@@ -2,8 +2,11 @@ import 'package:doctorsapp/consts/colors.dart';
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/consts/lists.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
+import 'package:doctorsapp/views/doctor_profile_view/doctor_profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -101,32 +104,37 @@ class HomeView extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 3,
                       itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          clipBehavior: Clip.hardEdge,
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 239, 234, 234),
-                              borderRadius: BorderRadius.circular(12)),
-                          margin: EdgeInsets.only(right: 8),
-                          height: 100,
-                          width: 150,
-                          child: Column(
-                            children: [
-                              Container(
-                                width: 150,
-                                alignment: Alignment.center,
-                                color: AppColors.blueColor,
-                                child: Image.asset(
-                                  AppAssets.imgdoctor,
-                                  width: 100,
-                                  fit: BoxFit.cover,
+                        return GestureDetector(
+                          onTap: () {
+                            Get.to(() => const DoctorProfileView());
+                          },
+                          child: Container(
+                            clipBehavior: Clip.hardEdge,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 239, 234, 234),
+                                borderRadius: BorderRadius.circular(12)),
+                            margin: EdgeInsets.only(right: 8),
+                            height: 100,
+                            width: 150,
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 150,
+                                  alignment: Alignment.center,
+                                  color: AppColors.blueColor,
+                                  child: Image.asset(
+                                    AppAssets.imgdoctor,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ),
-                              5.heightBox,
-                              AppStyles.regular(title: "Doctor Name"),
-                              5.heightBox,
-                              AppStyles.regular(
-                                  title: "Category", color: Colors.black54)
-                            ],
+                                5.heightBox,
+                                AppStyles.regular(title: "Doctor Name"),
+                                5.heightBox,
+                                AppStyles.regular(
+                                    title: "Category", color: Colors.black54)
+                              ],
+                            ),
                           ),
                         );
                       }),
