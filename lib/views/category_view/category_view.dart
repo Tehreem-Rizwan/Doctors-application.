@@ -1,8 +1,11 @@
 import 'package:doctorsapp/consts/lists.dart';
+import 'package:doctorsapp/views/category_details_view/category_details_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:doctorsapp/consts/const.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class CategoryView extends StatelessWidget {
   const CategoryView({super.key});
@@ -33,7 +36,9 @@ class CategoryView extends StatelessWidget {
               itemCount: iconsList.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(() => CategoryDetailView());
+                  },
                   child: Container(
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(

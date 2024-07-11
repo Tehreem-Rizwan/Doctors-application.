@@ -1,4 +1,5 @@
 import 'package:doctorsapp/consts/const.dart';
+import 'package:doctorsapp/views/Appointment_view/Appointment_view.dart';
 import 'package:doctorsapp/views/category_view/category_view.dart';
 import 'package:doctorsapp/views/doctors_view/doctorsview.dart';
 import 'package:doctorsapp/views/home_view/home_view.dart';
@@ -14,7 +15,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int selectedindex = 0;
-  List screenList = [HomeView(), CategoryView(), DoctorsView(), SettingsView()];
+  List screenList = [
+    HomeView(),
+    AppointmentView(),
+    CategoryView(),
+    DoctorsView(),
+    SettingsView()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +41,8 @@ class _HomeState extends State<Home> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.book), label: "Appointments"),
           BottomNavigationBarItem(
               icon: Icon(Icons.category), label: "Category"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Doctor"),
