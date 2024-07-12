@@ -41,8 +41,8 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAMxn3QMFxorkAG7_sXQYtO8UlhMzsHlTI',
-    appId: '1:594972828394:web:226331a0774b54c5a5ed93',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '594972828394',
     projectId: 'round-gamma-421917',
     authDomain: 'round-gamma-421917.firebaseapp.com',
@@ -50,16 +50,16 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC5-NQZr_Duf7FjFVL70jtdamRMSA03Amo',
-    appId: '1:594972828394:android:c93b32157fc45aa9a5ed93',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '594972828394',
     projectId: 'round-gamma-421917',
     storageBucket: 'round-gamma-421917.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAYXwoZsQBlPgztycQl2_y6SQaiaoIphi0',
-    appId: '1:594972828394:ios:b85db504d491ef33a5ed93',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '594972828394',
     projectId: 'round-gamma-421917',
     storageBucket: 'round-gamma-421917.appspot.com',
@@ -67,8 +67,8 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAYXwoZsQBlPgztycQl2_y6SQaiaoIphi0',
-    appId: '1:594972828394:ios:b85db504d491ef33a5ed93',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '594972828394',
     projectId: 'round-gamma-421917',
     storageBucket: 'round-gamma-421917.appspot.com',
@@ -76,8 +76,8 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAMxn3QMFxorkAG7_sXQYtO8UlhMzsHlTI',
-    appId: '1:594972828394:web:b890e732c151c3d3a5ed93',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '594972828394',
     projectId: 'round-gamma-421917',
     authDomain: 'round-gamma-421917.firebaseapp.com',
