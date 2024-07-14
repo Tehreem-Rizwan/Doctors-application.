@@ -97,49 +97,7 @@ class HomeView extends StatelessWidget {
                           color: AppColors.blueColor)),
                 ),
                 20.heightBox,
-                SizedBox(
-                  height: 150,
-                  child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 3,
-                      itemBuilder: (BuildContext context, int index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Get.to(() => const DoctorProfileView());
-                          },
-                          child: Container(
-                            clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 239, 234, 234),
-                                borderRadius: BorderRadius.circular(12)),
-                            margin: EdgeInsets.only(right: 8),
-                            height: 100,
-                            width: 150,
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 150,
-                                  alignment: Alignment.center,
-                                  color: AppColors.blueColor,
-                                  child: Image.asset(
-                                    AppAssets.imgdoctor,
-                                    width: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                5.heightBox,
-                                AppStyles.regular(title: "Doctor Name"),
-                                5.heightBox,
-                                AppStyles.regular(
-                                    title: "Category", color: Colors.black54)
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                ),
-                20.heightBox,
+                5.heightBox,
                 GestureDetector(
                     onTap: () {},
                     child: Align(
