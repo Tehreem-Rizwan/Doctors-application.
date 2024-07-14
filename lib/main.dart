@@ -1,6 +1,6 @@
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/consts/fonts.dart';
-import 'package:doctorsapp/views/login_view/login_view.dart';
+import 'package:doctorsapp/res/components/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(fontFamily: AppFonts.Nunito),
       debugShowCheckedModeBanner: false,
-      home: LoginView(),
+      home: SplashScreen(),
     );
   }
 }

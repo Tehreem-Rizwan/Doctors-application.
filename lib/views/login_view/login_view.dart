@@ -1,6 +1,7 @@
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/consts/images.dart';
 import 'package:doctorsapp/consts/strings.dart';
+import 'package:doctorsapp/controllers/auth_controller.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
 import 'package:doctorsapp/views/home_view/home.dart';
@@ -9,11 +10,17 @@ import 'package:doctorsapp/views/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
 
   @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AuthController());
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(top: 40),
@@ -42,10 +49,12 @@ class LoginView extends StatelessWidget {
                   children: [
                     CustomTextField(
                       hint: AppStrings.email,
+                      textController: controller.emailController,
                     ),
                     10.heightBox,
                     CustomTextField(
                       hint: AppStrings.password,
+                      textController: controller.passwordController,
                     ),
                     20.heightBox,
                     Align(
@@ -55,8 +64,11 @@ class LoginView extends StatelessWidget {
                     20.heightBox,
                     CustomButton(
                       buttonText: AppStrings.login,
-                      onTap: () {
-                        Get.to(() => Home());
+                      onTap: () async {
+                        await controller.loginUser();
+                        if (controller.userCredential != null) {
+                          Get.to(() => Home());
+                        }
                       },
                     ),
                     20.heightBox,

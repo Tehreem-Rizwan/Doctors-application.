@@ -1,7 +1,10 @@
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/consts/lists.dart';
+import 'package:doctorsapp/controllers/auth_controller.dart';
+import 'package:doctorsapp/views/login_view/login_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -37,7 +40,12 @@ class SettingsView extends StatelessWidget {
             children: List.generate(
               SettingsList.length,
               (index) => ListTile(
-                onTap: () {},
+                onTap: () {
+                  if (index == 2) {
+                    AuthController().signout();
+                    Get.offAll(() => LoginView());
+                  }
+                },
                 leading: Icon(
                   SettingsListicon[index],
                   color: AppColors.blueColor,
