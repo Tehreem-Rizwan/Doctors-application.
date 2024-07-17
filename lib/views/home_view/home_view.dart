@@ -1,27 +1,30 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctorsapp/consts/colors.dart';
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/consts/lists.dart';
+import 'package:doctorsapp/controllers/home_controller.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
 import 'package:doctorsapp/views/doctor_profile_view/doctor_profile_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(HomeController());
     return Scaffold(
       appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: AppColors.blueColor,
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Text(
-            "Welcome User",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          )),
+        elevation: 0.0,
+        backgroundColor: AppColors.blueColor,
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          "Welcome User",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: Column(
         children: [
           Container(
@@ -37,98 +40,173 @@ class HomeView extends StatelessWidget {
                     textcolor: AppColors.whitecolor,
                   ),
                 ),
-                10.widthBox,
+                SizedBox(width: 10),
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.search,
                     color: AppColors.whitecolor,
                   ),
-                )
+                ),
               ],
             ),
           ),
-          30.heightBox,
+          SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 SizedBox(
-                    height: 80,
-                    child: ListView.builder(
-                        physics: BouncingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 6,
-                        itemBuilder: (BuildContext context, int index) {
-                          return GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(12),
+                  height: 80,
+                  child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 6,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: EdgeInsets.all(12),
+                          margin: const EdgeInsets.only(right: 8),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                iconsList[index],
+                                width: 30,
+                                color: AppColors.whitecolor,
                               ),
-                              padding: EdgeInsets.all(12),
-                              margin: const EdgeInsets.only(right: 8),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    iconsList[index],
-                                    width: 30,
-                                    color: AppColors.whitecolor,
-                                  ),
-                                  5.heightBox,
-                                  AppStyles.regular(
-                                    title: iconsTitleList[index],
-                                    color: AppColors.whitecolor,
-                                  )
-                                ],
+                              SizedBox(height: 5),
+                              AppStyles.regular(
+                                title: iconsTitleList[index],
+                                color: AppColors.whitecolor,
                               ),
-                            ),
-                          );
-                        })),
-                30.heightBox,
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 30),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(AppStrings.popularDoctors,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: AppColors.blueColor)),
+                  child: Text(
+                    AppStrings.popularDoctors,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: AppColors.blueColor,
+                    ),
+                  ),
                 ),
-                20.heightBox,
-                5.heightBox,
-                GestureDetector(
-                    onTap: () {},
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: AppStyles.regular(
-                          title: "View All", color: AppColors.blueColor),
-                    )),
-                30.heightBox,
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(
-                        4,
-                        (index) => Container(
-                              decoration: BoxDecoration(
-                                  color: AppColors.blueColor,
-                                  borderRadius: BorderRadius.circular(12)),
-                              padding: EdgeInsets.all(12),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    AppAssets.icBody,
-                                    width: 25,
-                                    color: AppColors.whitecolor,
-                                  ),
-                                  5.heightBox,
-                                  AppStyles.regular(
-                                      title: "Lab Test",
-                                      color: AppColors.whitecolor)
-                                ],
+                10.heightBox,
+                FutureBuilder<QuerySnapshot>(
+                  future: controller.getDoctorList(),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else {
+                      var data = snapshot.data?.docs;
+
+                      return SizedBox(
+                        height: 150,
+                        child: ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: data?.length ?? 0,
+                          itemBuilder: (BuildContext context, int index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Get.to(() => DoctorProfileView(
+                                      doc: data[index],
+                                    ));
+                              },
+                              child: Container(
+                                clipBehavior: Clip.hardEdge,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 239, 234, 234),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                margin: EdgeInsets.only(right: 8),
+                                height: 100,
+                                width: 150,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 150,
+                                      alignment: Alignment.center,
+                                      color: AppColors.blueColor,
+                                      child: Image.asset(
+                                        AppAssets.imgdoctor,
+                                        width: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    AppStyles.regular(
+                                        title: data![index]['docName']),
+                                    SizedBox(height: 5),
+                                    AppStyles.regular(
+                                      title: data[index]['docCategory'],
+                                      color: Colors.black54,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            )))
+                            );
+                          },
+                        ),
+                      );
+                    }
+                  },
+                ),
+                SizedBox(height: 5),
+                GestureDetector(
+                  onTap: () {},
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: AppStyles.regular(
+                      title: "View All",
+                      color: AppColors.blueColor,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List.generate(
+                    4,
+                    (index) => Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.blueColor,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      padding: EdgeInsets.all(12),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            AppAssets.icBody,
+                            width: 25,
+                            color: AppColors.whitecolor,
+                          ),
+                          SizedBox(height: 5),
+                          AppStyles.regular(
+                            title: "Lab Test",
+                            color: AppColors.whitecolor,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

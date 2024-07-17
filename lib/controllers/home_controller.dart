@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   var isLoading = false.obs;
-  getDoctorList() async {
-    var doctors = FirebaseFirestore.instance.collection("doctos").snapshots();
+  Future<QuerySnapshot<Map<String, dynamic>>> getDoctorList() async {
+    var doctors = FirebaseFirestore.instance.collection("doctos").get();
     return doctors;
   }
 }

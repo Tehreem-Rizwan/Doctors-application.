@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/views/Book_Appointment_view/Book_Appointment_view.dart';
@@ -8,7 +9,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class DoctorProfileView extends StatelessWidget {
-  const DoctorProfileView({super.key});
+  final DocumentSnapshot doc;
+  const DoctorProfileView({super.key, required this.doc});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class DoctorProfileView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.blue,
           title: Text(
-            "Doctor Name",
+            'Doctor Details',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: AppColors.whitecolor,
@@ -48,14 +50,14 @@ class DoctorProfileView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Doctor Name",
+                              doc['docName'],
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.textColor,
                                   fontSize: AppSizes.size14),
                             ),
                             Text(
-                              "Category",
+                              doc['docCategory'],
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.textColor.withOpacity(0.5),
@@ -67,7 +69,7 @@ class DoctorProfileView extends StatelessWidget {
                               onRatingUpdate: (value) {},
                               maxRating: 5,
                               count: 5,
-                              value: 4,
+                              value: double.parse(doc['docRating'].toString()),
                               stepInt: true,
                             ),
                           ],
@@ -103,7 +105,7 @@ class DoctorProfileView extends StatelessWidget {
                           ),
                         ),
                         subtitle: AppStyles.regular(
-                            title: "+923207166412",
+                            title: doc['docPhone'],
                             color: AppColors.textColor.withOpacity(0.5),
                             size: AppSizes.size12),
                         trailing: Container(
@@ -128,7 +130,7 @@ class DoctorProfileView extends StatelessWidget {
                       ),
                       5.heightBox,
                       AppStyles.regular(
-                          title: "This is the about section of the doctor",
+                          title: doc['docAbout'],
                           color: AppColors.textColor.withOpacity(0.5),
                           size: AppSizes.size12),
                       10.heightBox,
@@ -142,7 +144,7 @@ class DoctorProfileView extends StatelessWidget {
                       ),
                       5.heightBox,
                       AppStyles.regular(
-                          title: "Address of the Doctor",
+                          title: doc['docAddress'],
                           color: AppColors.textColor.withOpacity(0.5),
                           size: AppSizes.size12),
                       10.heightBox,
@@ -156,7 +158,7 @@ class DoctorProfileView extends StatelessWidget {
                       ),
                       5.heightBox,
                       AppStyles.regular(
-                          title: "9:00 AM to 12:00 PM",
+                          title: doc['docTiming'],
                           color: AppColors.textColor.withOpacity(0.5),
                           size: AppSizes.size12),
                       10.heightBox,
@@ -170,7 +172,7 @@ class DoctorProfileView extends StatelessWidget {
                       ),
                       5.heightBox,
                       AppStyles.regular(
-                          title: "This is the services section of doctor",
+                          title: doc['docServices'],
                           color: AppColors.textColor.withOpacity(0.5),
                           size: AppSizes.size12),
                     ],
