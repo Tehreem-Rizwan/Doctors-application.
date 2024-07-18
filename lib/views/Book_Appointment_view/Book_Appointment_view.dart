@@ -1,18 +1,26 @@
 import 'package:doctorsapp/consts/const.dart';
+import 'package:doctorsapp/controllers/appointment_controller.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class BookAppointmentView extends StatelessWidget {
-  const BookAppointmentView({super.key});
+  final String docid;
+  final String docname;
+  const BookAppointmentView(
+      {super.key, required this.docid, required this.docname});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AppointmentController());
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          "Doctor Name",
+          docname,
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: AppColors.whitecolor,
@@ -53,7 +61,12 @@ class BookAppointmentView extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: CustomButton(buttonText: "Book and Appointment", onTap: () {}),
+        child: CustomButton(
+            buttonText: "Book and Appointment",
+            onTap: () async {
+              await controller.BookAppointment(docid, context);
+              Get.back();
+            }),
       ),
     );
   }
