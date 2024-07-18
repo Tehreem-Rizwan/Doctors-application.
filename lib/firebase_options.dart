@@ -41,46 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '594972828394',
-    projectId: 'round-gamma-421917',
-    authDomain: 'round-gamma-421917.firebaseapp.com',
-    storageBucket: 'round-gamma-421917.appspot.com',
+    apiKey: 'AIzaSyChIIlitoaT4ChovEaB6MxevqSplXstdEg',
+    appId: '1:668768674791:web:0c83925dc3547192fed342',
+    messagingSenderId: '668768674791',
+    projectId: 'gothic-avenue-417610',
+    authDomain: 'gothic-avenue-417610.firebaseapp.com',
+    storageBucket: 'gothic-avenue-417610.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '594972828394',
-    projectId: 'round-gamma-421917',
-    storageBucket: 'round-gamma-421917.appspot.com',
+    apiKey: 'AIzaSyBGRSM-Us-kthLfz4yBSvetH-wBa-o7klk',
+    appId: '1:668768674791:android:086bafaf5e268cfcfed342',
+    messagingSenderId: '668768674791',
+    projectId: 'gothic-avenue-417610',
+    storageBucket: 'gothic-avenue-417610.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '594972828394',
-    projectId: 'round-gamma-421917',
-    storageBucket: 'round-gamma-421917.appspot.com',
+    apiKey: 'AIzaSyDP792CG_f6DcficIZrbSjCddUd4l_9mSg',
+    appId: '1:668768674791:ios:7001bf73502328affed342',
+    messagingSenderId: '668768674791',
+    projectId: 'gothic-avenue-417610',
+    storageBucket: 'gothic-avenue-417610.appspot.com',
     iosBundleId: 'com.example.doctorsapp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '594972828394',
-    projectId: 'round-gamma-421917',
-    storageBucket: 'round-gamma-421917.appspot.com',
+    apiKey: 'AIzaSyDP792CG_f6DcficIZrbSjCddUd4l_9mSg',
+    appId: '1:668768674791:ios:7001bf73502328affed342',
+    messagingSenderId: '668768674791',
+    projectId: 'gothic-avenue-417610',
+    storageBucket: 'gothic-avenue-417610.appspot.com',
     iosBundleId: 'com.example.doctorsapp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: '',
-    appId: '',
-    messagingSenderId: '594972828394',
-    projectId: 'round-gamma-421917',
-    authDomain: 'round-gamma-421917.firebaseapp.com',
-    storageBucket: 'round-gamma-421917.appspot.com',
+    apiKey: 'AIzaSyChIIlitoaT4ChovEaB6MxevqSplXstdEg',
+    appId: '1:668768674791:web:8ff9dab4dfadd5e7fed342',
+    messagingSenderId: '668768674791',
+    projectId: 'gothic-avenue-417610',
+    authDomain: 'gothic-avenue-417610.firebaseapp.com',
+    storageBucket: 'gothic-avenue-417610.appspot.com',
   );
+
 }

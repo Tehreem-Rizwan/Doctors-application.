@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "594972828394",
-    "project_id": "round-gamma-421917",
-    "storage_bucket": "round-gamma-421917.appspot.com"
+    "project_number": "668768674791",
+    "project_id": "gothic-avenue-417610",
+    "storage_bucket": "gothic-avenue-417610.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:594972828394:android:c93b32157fc45aa9a5ed93",
+        "mobilesdk_app_id": "1:668768674791:android:086bafaf5e268cfcfed342",
         "android_client_info": {
           "package_name": "com.example.doctorsapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC5-NQZr_Duf7FjFVL70jtdamRMSA03Amo"
+          "current_key": "AIzaSyBGRSM-Us-kthLfz4yBSvetH-wBa-o7klk"
         }
       ],
       "services": {

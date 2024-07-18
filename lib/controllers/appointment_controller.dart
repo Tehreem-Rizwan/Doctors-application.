@@ -25,5 +25,6 @@ class AppointmentController extends GetxController {
     });
     isLoading(false);
     VxToast.show(context, msg: "Appointment is booked successfully!");
+    Get.back();
   }
 }

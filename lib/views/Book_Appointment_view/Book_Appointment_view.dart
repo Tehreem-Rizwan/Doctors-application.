@@ -36,37 +36,55 @@ class BookAppointmentView extends StatelessWidget {
               Text("Select Appointment Day",
                   style: TextStyle(fontWeight: FontWeight.bold)),
               5.heightBox,
-              CustomTextField(hint: "Select Day"),
+              CustomTextField(
+                hint: "Select Day",
+                textController: controller.appDayController,
+              ),
               10.heightBox,
               Text("Select Appointment Time",
                   style: TextStyle(fontWeight: FontWeight.bold)),
               5.heightBox,
-              CustomTextField(hint: "Select Time"),
+              CustomTextField(
+                hint: "Select Time",
+                textController: controller.appTimeController,
+              ),
               20.heightBox,
               Text("Mobile Number",
                   style: TextStyle(fontWeight: FontWeight.bold)),
               5.heightBox,
-              CustomTextField(hint: "Enter your mobile number"),
+              CustomTextField(
+                hint: "Enter your mobile number",
+                textController: controller.appMobileController,
+              ),
               10.heightBox,
               Text("Full Name", style: TextStyle(fontWeight: FontWeight.bold)),
               5.heightBox,
-              CustomTextField(hint: "Enter your name"),
+              CustomTextField(
+                hint: "Enter your name",
+                textController: controller.appNameController,
+              ),
               10.heightBox,
               Text("Message", style: TextStyle(fontWeight: FontWeight.bold)),
               5.heightBox,
-              CustomTextField(hint: "Enter your message"),
+              CustomTextField(
+                hint: "Enter your message",
+                textController: controller.appMessageController,
+              ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: CustomButton(
-            buttonText: "Book and Appointment",
-            onTap: () async {
-              await controller.BookAppointment(docid, context);
-              Get.back();
-            }),
+      bottomNavigationBar: Obx(
+        () => Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: controller.isLoading.value
+              ? const Center(child: CircularProgressIndicator())
+              : CustomButton(
+                  buttonText: "Book and Appointment",
+                  onTap: () async {
+                    await controller.BookAppointment(docid, context);
+                  }),
+        ),
       ),
     );
   }
