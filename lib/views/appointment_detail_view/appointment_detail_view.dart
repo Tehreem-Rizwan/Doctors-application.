@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctorsapp/consts/const.dart';
 import 'package:flutter/cupertino.dart';
 
 class AppointmentDetailView extends StatelessWidget {
-  const AppointmentDetailView({super.key});
+  final DocumentSnapshot doc;
+  const AppointmentDetailView({super.key, required this.doc});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class AppointmentDetailView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          "Doctor Name",
+          doc['appWithName'],
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: AppColors.whitecolor,
@@ -22,28 +24,28 @@ class AppointmentDetailView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Select Appointment Day",
+            Text("Select Appointment day",
                 style: TextStyle(fontWeight: FontWeight.bold)),
             5.heightBox,
-            AppStyles.regular(title: "Selected Day"),
+            AppStyles.regular(title: doc['appDay']),
             10.heightBox,
-            Text("Select Appointment Time",
+            Text("Select appointment Time",
                 style: TextStyle(fontWeight: FontWeight.bold)),
             5.heightBox,
-            AppStyles.regular(title: "Selected Time"),
+            AppStyles.regular(title: doc['appTime']),
             20.heightBox,
             Text("Mobile Number",
                 style: TextStyle(fontWeight: FontWeight.bold)),
             5.heightBox,
-            AppStyles.regular(title: "Mobile Number"),
+            AppStyles.regular(title: doc['appMobile']),
             10.heightBox,
             Text("Full Name", style: TextStyle(fontWeight: FontWeight.bold)),
             5.heightBox,
-            AppStyles.regular(title: "Name"),
+            AppStyles.regular(title: doc['appName']),
             10.heightBox,
             Text("Message", style: TextStyle(fontWeight: FontWeight.bold)),
             5.heightBox,
-            AppStyles.regular(title: "Message"),
+            AppStyles.regular(title: doc['appMsg']),
           ],
         ),
       ),

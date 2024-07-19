@@ -11,7 +11,8 @@ class AppointmentController extends GetxController {
   var appMobileController = TextEditingController();
   var appNameController = TextEditingController();
   var appMessageController = TextEditingController();
-  BookAppointment(String docId, BuildContext context) async {
+
+  BookAppointment(String docid, String docname, BuildContext context) async {
     isLoading(true);
     var store = FirebaseFirestore.instance.collection('appointments').doc();
     await store.set({
@@ -21,10 +22,15 @@ class AppointmentController extends GetxController {
       'appMobile': appMobileController.text,
       'appName': appNameController.text,
       'appMessage': appMessageController.text,
-      'appID': docId,
+      'appID': docid,
+      'appWithName': docname,
     });
     isLoading(false);
     VxToast.show(context, msg: "Appointment is booked successfully!");
     Get.back();
+  }
+
+  Future<QuerySnapshot<Map<String, dynamic>>> getAppointments() {
+    return FirebaseFirestore.instance.collection('appointments').get();
   }
 }

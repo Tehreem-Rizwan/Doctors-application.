@@ -4,6 +4,7 @@ import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/consts/lists.dart';
 import 'package:doctorsapp/controllers/home_controller.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
+import 'package:doctorsapp/views/category_details_view/category_details_view.dart';
 import 'package:doctorsapp/views/doctor_profile_view/doctor_profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,10 @@ class HomeView extends StatelessWidget {
                     itemCount: 6,
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(() => CategoryDetailView(
+                              catName: iconsTitleList[index]));
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.blue,
