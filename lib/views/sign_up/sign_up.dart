@@ -6,11 +6,18 @@ import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
 import 'package:doctorsapp/views/home_view/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class SignUpView extends StatelessWidget {
+class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
 
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
+  var isDoctor = false;
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AuthController());
@@ -54,11 +61,56 @@ class SignUpView extends StatelessWidget {
                       hint: AppStrings.password,
                       textController: controller.passwordController,
                     ),
+                    10.heightBox,
+                    SwitchListTile(
+                        title: "Sign Up as a Doctor".text.make(),
+                        value: isDoctor,
+                        onChanged: (newValue) {
+                          setState(() {
+                            isDoctor = newValue;
+                          });
+                        }),
+                    Visibility(
+                      visible: isDoctor,
+                      child: Column(
+                        children: [
+                          CustomTextField(
+                            hint: "About",
+                            textController: controller.aboutController,
+                          ),
+                          10.heightBox,
+                          CustomTextField(
+                            hint: "Category",
+                            textController: controller.cateogryController,
+                          ),
+                          10.heightBox,
+                          CustomTextField(
+                            hint: "Services",
+                            textController: controller.serviceController,
+                          ),
+                          10.heightBox,
+                          CustomTextField(
+                            hint: "Address",
+                            textController: controller.addressController,
+                          ),
+                          10.heightBox,
+                          CustomTextField(
+                            hint: "Phone Number",
+                            textController: controller.phonenumberController,
+                          ),
+                          10.heightBox,
+                          CustomTextField(
+                            hint: "Timing",
+                            textController: controller.TimingController,
+                          ),
+                        ],
+                      ),
+                    ),
                     40.heightBox,
                     CustomButton(
                       buttonText: AppStrings.signup,
                       onTap: () async {
-                        await controller.signupUser();
+                        await controller.signupUser(isDoctor);
                         if (controller.userCredential != null) {
                           Get.offAll(() => Home());
                         }

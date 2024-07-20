@@ -1,7 +1,6 @@
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/views/Appointment_view/Appointment_view.dart';
 import 'package:doctorsapp/views/category_view/category_view.dart';
-import 'package:doctorsapp/views/doctors_view/doctorsview.dart';
 import 'package:doctorsapp/views/home_view/home_view.dart';
 import 'package:doctorsapp/views/settings_view/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,6 @@ class _HomeState extends State<Home> {
     HomeView(),
     AppointmentView(),
     CategoryView(),
-    DoctorsView(),
     SettingsView()
   ];
   @override
@@ -45,7 +43,6 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.book), label: "Appointments"),
           BottomNavigationBarItem(
               icon: Icon(Icons.category), label: "Category"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Doctor"),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
         ],
       ),

@@ -4,6 +4,7 @@ import 'package:doctorsapp/consts/strings.dart';
 import 'package:doctorsapp/controllers/auth_controller.dart';
 import 'package:doctorsapp/res/components/custom_button.dart';
 import 'package:doctorsapp/res/components/custom_textfield.dart';
+import 'package:doctorsapp/views/appointment_view/appointment_view.dart';
 import 'package:doctorsapp/views/home_view/home.dart';
 
 import 'package:doctorsapp/views/sign_up/sign_up.dart';
@@ -18,6 +19,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  var isDoctor = false;
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(AuthController());
@@ -56,6 +58,17 @@ class _LoginViewState extends State<LoginView> {
                       hint: AppStrings.password,
                       textController: controller.passwordController,
                     ),
+                    10.heightBox,
+                    SwitchListTile(
+                        value: isDoctor,
+                        onChanged: (newValue) {
+                          setState(
+                            () {
+                              isDoctor = newValue;
+                            },
+                          );
+                        },
+                        title: "Sign in as a doctor".text.make()),
                     20.heightBox,
                     Align(
                         alignment: Alignment.centerRight,
@@ -67,7 +80,11 @@ class _LoginViewState extends State<LoginView> {
                       onTap: () async {
                         await controller.loginUser();
                         if (controller.userCredential != null) {
-                          Get.to(() => Home());
+                          if (isDoctor) {
+                            Get.to(() => AppointmentView());
+                          } else {
+                            Get.to(() => Home());
+                          }
                         }
                       },
                     ),

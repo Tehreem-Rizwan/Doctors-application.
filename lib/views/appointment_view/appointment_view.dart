@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctorsapp/consts/const.dart';
 import 'package:doctorsapp/controllers/appointment_controller.dart';
+import 'package:doctorsapp/controllers/auth_controller.dart';
 import 'package:doctorsapp/views/appointment_detail_view/appointment_detail_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class AppointmentView extends StatelessWidget {
-  const AppointmentView({super.key});
+  final bool isDoctor;
+  const AppointmentView({super.key, this.isDoctor = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,16 @@ class AppointmentView extends StatelessWidget {
                 color: AppColors.whitecolor,
                 fontSize: AppSizes.size18),
           ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  AuthController().signout();
+                },
+                icon: Icon(Icons.power_settings_new_rounded))
+          ],
         ),
         body: FutureBuilder<QuerySnapshot>(
-            future: controller.getAppointments(),
+            future: controller.getAppointments(isDoctor),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (!snapshot.hasData) {
@@ -48,7 +57,7 @@ class AppointmentView extends StatelessWidget {
                             child: Image.asset(AppAssets.imgdoctor),
                           ),
                           title: Text(
-                            data![index]['appWithName'],
+                            data![index][!isDoctor ? 'appWithName' : 'appName'],
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
